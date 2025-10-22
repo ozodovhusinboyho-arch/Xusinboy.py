@@ -1,3 +1,10 @@
+# subtotal should be outside of while loop
+# on every user input it should show price and total
+subtotal = 0  # Must be outside the loopstudent
+
+
+
+
 while True:
     category= input("Enter item category(or'done'to finish):")  
     if category =="done":
@@ -11,21 +18,19 @@ while True:
     else:
         print("Other choise.Try again.")
         continue
-
-    subtotal = 0  # Must be outside the loopstudent
-
-    subtotal = subtotal + price
+    subtotal += price  # Add price to running subtotal
+    print(f"Price: ${price:.2f}")
+    print(f"Current total: ${subtotal:.2f}")
     
 # After loop, apply discount if applicable
     discount= 0
-    if subtotal >= 15.00:
-         discount = subtotal*0.17 #17% # Fixed amount, not a percentage
+if subtotal >= 15.00:
+    discount = subtotal*0.17 #17% 
 
-    final_total = subtotal - discount
+final_total = subtotal - discount
 
 print("\n--- Final Result ---")
 print(f"Subtotal: ${subtotal:.2f}")
 print(f"Discount: -${discount:.2f}")
 print(f"Total to Pay: ${final_total:.2f}")
-
      
